@@ -5,21 +5,35 @@ class Employee:
         self.salary = salary
         self.department = department
 
+    ##########################################################
+    # Function 'calculate_salary': 
+    # To calculate the salary of an employee.
     def calculate_salary(self, salary, hours_worked):
         overtime = 0
         if hours_worked > 50:
             overtime = hours_worked - 50
-        self.salary = self.salary + (overtime * (self.salary / 50))
+            self.salary = self.salary + (overtime * (self.salary / 50))
+        else:
+            self.salary = self.salary * (hours_worked / 50)
 
+    ##########################################################
+    # Function 'assign_department': 
+    # To change the department of an employee.
     def assign_department(self, emp_department):
         self.department = emp_department
 
+    ##########################################################
+    # Function 'print_employee_details': 
+    # To print the details of an employee.
     def print_employee_details(self):
         print("\nName: ", self.name)
         print("ID: ", self.id)
         print("Salary: ", self.salary)
         print("Department: ", self.department)
         print("----------------------")
+
+
+
 
 
 employee1 = Employee("ADAMS", "E7876", 50000, "ACCOUNTING")
@@ -38,11 +52,11 @@ employee1.assign_department("OPERATIONS")
 employee4.assign_department("SALES")
 
 # Now calculate the overtime of the employees who are eligible:
-employee2.calculate_salary(45000, 52)
-employee4.calculate_salary(45000, 60)
+employee2.calculate_salary(45000, 30)
+employee4.calculate_salary(45000, 0)
 
 print("Updated Employee Details:")
-employee1.print_employee_details()
+#employee1.print_employee_details()
 employee2.print_employee_details()
-employee3.print_employee_details()
+#employee3.print_employee_details()
 employee4.print_employee_details()
